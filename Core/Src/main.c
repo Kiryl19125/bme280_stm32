@@ -110,17 +110,18 @@ int main(void)
 	  sprintf(str1, "Temperature: %.2f *C\r\n", temperature);
 	  HAL_UART_Transmit(&huart2, (uint8_t*)str1, strlen(str1), 1000);
 
-	  sprintf(str1, "Preasure: %.2f *C\r\n", preasure);
+	  sprintf(str1, "Preasure: %.2f PA\r\n", preasure);
 	  HAL_UART_Transmit(&huart2, (uint8_t*)str1, strlen(str1), 1000);
 
-	  sprintf(str1, "Humidity: %.2f *C\r\n", humidity);
+	  sprintf(str1, "Humidity: %.2f (%)\r\n", humidity);
 	  HAL_UART_Transmit(&huart2, (uint8_t*)str1, strlen(str1), 1000);
 
-	  sprintf(str1, "Altitude: %.2f *C\r\n", altitude);
+	  sprintf(str1, "Altitude: %.2f M\r\n", altitude);
 	  HAL_UART_Transmit(&huart2, (uint8_t*)str1, strlen(str1), 1000);
 
 	  HAL_UART_Transmit(&huart2, (uint8_t*)"-----------------------------------\r\n", strlen("-----------------------------------\r\n"), 1000);
 
+	  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
